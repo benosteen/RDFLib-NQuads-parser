@@ -8,7 +8,7 @@ class NQuadsParserTest(TestCase):
 
     def _load_example(self):
         g = ConjunctiveGraph()
-        with open("example.nquads", "r") as examples
+        with open("example.nquads", "r") as examples:
             g.parse(examples, format="nquads")
         return g
       
@@ -26,8 +26,8 @@ class NQuadsParserTest(TestCase):
         # Looking for:
         # <http://bibliographica.org/entity/E10009> <http://xmlns.com/foaf/0.1/name> "Arco Publications" <http://bibliographica.org/entity/E10009>
         
+        g = self._load_example()
         s = URIRef("http://bibliographica.org/entity/E10009")
         FOAF = Namespace("http://xmlns.com/foaf/0.1/")
-        subgraph = 
         self.assertEqual(g.value(s, FOAF.name), "Arco Publications")
 
